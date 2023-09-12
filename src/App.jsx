@@ -1,13 +1,18 @@
-
 import './App.css'
+import Blogs from './Components/Blogs/Blogs'
+import BookMarks from './Components/BookMarks/BookMarks'
+import Header from './Components/Header/Header'
 
 function App() {
 
 
   return (
     <>
-
-      <h1 className='text-4xl font-bold text-center pt-10'> react-knowledge-cafe </h1>
+    <Header></Header>
+    <div className='flex flex-col md:flex-row justify-between w-11/12 mx-auto pt-8 gap-4'>
+    <Blogs></Blogs>
+    <BookMarks></BookMarks>
+    </div>
 
     </>
   )
