@@ -3,8 +3,8 @@ import { ImBookmarks } from 'react-icons/im';
 
 
 
-const Blog = ({blog,handelBookMarks}) => {
-    const {title,cover,readingTime,author,authorImage,postPublishDate,hashtag} = blog
+const Blog = ({blog,handelBookMarks,handelMarkAsRead}) => {
+    const {id,title,cover,readingTime,author,authorImage,postPublishDate,hashtag} = blog
     return (
         <div>
             <img className='w-full ' src={cover} alt= {`cover images title ${title}`}/>
@@ -29,15 +29,16 @@ const Blog = ({blog,handelBookMarks}) => {
             <h2 className='text-4xl leading-normal py-4'> {title}</h2>
             <a href=""></a>
             <div className='pb-4 text-lg'>
-                {hashtag.map((hash,idx)=> <span key={idx} > <a href="#"># {hash} </a> </span>) }
+                {hashtag.map((hash,idx)=> <span key={idx} > # {hash} </span>) }
             </div>
-            <h3 className='pb-6 underline text-lg text-teal-300'>Mark As Read</h3>
+            <button onClick={()=>handelMarkAsRead(id,readingTime)} className='pb-6 underline text-lg text-teal-300'>Mark As Read</button>
         </div>
     );
 };
 
 Blog.propTypes={
     blog:PropTypes.object.isRequired,
-    handelBookMarks: PropTypes.func.isRequired
+    handelBookMarks: PropTypes.func.isRequired,
+    handelMarkAsRead: PropTypes.func.isRequired
 }
 export default Blog;

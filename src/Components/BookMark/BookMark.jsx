@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const BookMark = ({bookMark}) => {
     const {title} = bookMark
     return (
-        <div className='bg-[#373D4E] m-3 p-4 rounded-md'>
+        <div className='bg-[#2C3540] my-4 p-4 rounded-md'>
             <h2 className='text-xl leading-normal '> {title}</h2>
         </div>
     );
