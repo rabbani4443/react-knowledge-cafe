@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
+import { ImBookmarks } from 'react-icons/im';
 
-const Blog = ({blog}) => {
+
+
+const Blog = ({blog,handelBookMarks}) => {
     const {title,cover,readingTime,author,authorImage,postPublishDate,hashtag} = blog
     return (
         <div>
@@ -16,8 +19,11 @@ const Blog = ({blog}) => {
                     </div>
 
                 </div>
-                <div>
-                    <h4 className='text-lg text-gray-300'>{readingTime} min read </h4>
+                <div className='flex gap-2 items-center'>
+                    <h4 className='text-lg text-gray-300 '>{readingTime} min read </h4>
+                    <button onClick={() => handelBookMarks (blog)} className='text-3xl' > 
+                    <ImBookmarks></ImBookmarks> 
+                    </button>
                 </div>
             </div>
             <h2 className='text-4xl leading-normal py-4'> {title}</h2>
@@ -31,6 +37,7 @@ const Blog = ({blog}) => {
 };
 
 Blog.propTypes={
-    blog:PropTypes.object.isRequired
+    blog:PropTypes.object.isRequired,
+    handelBookMarks: PropTypes.func.isRequired
 }
 export default Blog;
